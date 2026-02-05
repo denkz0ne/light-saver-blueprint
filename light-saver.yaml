@@ -18,7 +18,6 @@ input:
       entity:
         domain: binary_sensor
         multiple: true
-
   area_1_lights:
     name: Area 1 – svetlá
     default: []
@@ -26,7 +25,6 @@ input:
       entity:
         domain: light
         multiple: true
-
   area_1_switches:
     name: Area 1 – switche
     default: []
@@ -34,7 +32,6 @@ input:
       entity:
         domain: switch
         multiple: true
-
   area_1_delay:
     name: Area 1 – vypnúť po (min)
     default: 15
@@ -52,7 +49,6 @@ input:
       entity:
         domain: binary_sensor
         multiple: true
-
   area_2_lights:
     name: Area 2 – svetlá
     default: []
@@ -60,7 +56,6 @@ input:
       entity:
         domain: light
         multiple: true
-
   area_2_switches:
     name: Area 2 – switche
     default: []
@@ -68,7 +63,6 @@ input:
       entity:
         domain: switch
         multiple: true
-
   area_2_delay:
     name: Area 2 – vypnúť po (min)
     default: 10
@@ -78,41 +72,249 @@ input:
         max: 240
         unit_of_measurement: min
 
-  ### AREA 3–10 (rovnaký vzor)
-  {% for i in range(3,11) %}
-  area_{{ i }}_motion:
-    name: Area {{ i }} – pohyb
+  ### AREA 3
+  area_3_motion:
+    name: Area 3 – pohyb
     default: []
     selector:
       entity:
         domain: binary_sensor
         multiple: true
-
-  area_{{ i }}_lights:
-    name: Area {{ i }} – svetlá
+  area_3_lights:
+    name: Area 3 – svetlá
     default: []
     selector:
       entity:
         domain: light
         multiple: true
-
-  area_{{ i }}_switches:
-    name: Area {{ i }} – switche
+  area_3_switches:
+    name: Area 3 – switche
     default: []
     selector:
       entity:
         domain: switch
         multiple: true
-
-  area_{{ i }}_delay:
-    name: Area {{ i }} – vypnúť po (min)
+  area_3_delay:
+    name: Area 3 – vypnúť po (min)
     default: 10
     selector:
       number:
         min: 1
         max: 240
         unit_of_measurement: min
-  {% endfor %}
+
+  ### AREA 4
+  area_4_motion:
+    name: Area 4 – pohyb
+    default: []
+    selector:
+      entity:
+        domain: binary_sensor
+        multiple: true
+  area_4_lights:
+    name: Area 4 – svetlá
+    default: []
+    selector:
+      entity:
+        domain: light
+        multiple: true
+  area_4_switches:
+    name: Area 4 – switche
+    default: []
+    selector:
+      entity:
+        domain: switch
+        multiple: true
+  area_4_delay:
+    name: Area 4 – vypnúť po (min)
+    default: 10
+    selector:
+      number:
+        min: 1
+        max: 240
+        unit_of_measurement: min
+
+  ### AREA 5
+  area_5_motion:
+    name: Area 5 – pohyb
+    default: []
+    selector:
+      entity:
+        domain: binary_sensor
+        multiple: true
+  area_5_lights:
+    name: Area 5 – svetlá
+    default: []
+    selector:
+      entity:
+        domain: light
+        multiple: true
+  area_5_switches:
+    name: Area 5 – switche
+    default: []
+    selector:
+      entity:
+        domain: switch
+        multiple: true
+  area_5_delay:
+    name: Area 5 – vypnúť po (min)
+    default: 10
+    selector:
+      number:
+        min: 1
+        max: 240
+        unit_of_measurement: min
+
+  ### AREA 6–10
+  area_6_motion:
+    name: Area 6 – pohyb
+    default: []
+    selector:
+      entity:
+        domain: binary_sensor
+        multiple: true
+  area_6_lights:
+    name: Area 6 – svetlá
+    default: []
+    selector:
+      entity:
+        domain: light
+        multiple: true
+  area_6_switches:
+    name: Area 6 – switche
+    default: []
+    selector:
+      entity:
+        domain: switch
+        multiple: true
+  area_6_delay:
+    name: Area 6 – vypnúť po (min)
+    default: 10
+    selector:
+      number:
+        min: 1
+        max: 240
+        unit_of_measurement: min
+
+  area_7_motion:
+    name: Area 7 – pohyb
+    default: []
+    selector:
+      entity:
+        domain: binary_sensor
+        multiple: true
+  area_7_lights:
+    name: Area 7 – svetlá
+    default: []
+    selector:
+      entity:
+        domain: light
+        multiple: true
+  area_7_switches:
+    name: Area 7 – switche
+    default: []
+    selector:
+      entity:
+        domain: switch
+        multiple: true
+  area_7_delay:
+    name: Area 7 – vypnúť po (min)
+    default: 10
+    selector:
+      number:
+        min: 1
+        max: 240
+        unit_of_measurement: min
+
+  area_8_motion:
+    name: Area 8 – pohyb
+    default: []
+    selector:
+      entity:
+        domain: binary_sensor
+        multiple: true
+  area_8_lights:
+    name: Area 8 – svetlá
+    default: []
+    selector:
+      entity:
+        domain: light
+        multiple: true
+  area_8_switches:
+    name: Area 8 – switche
+    default: []
+    selector:
+      entity:
+        domain: switch
+        multiple: true
+  area_8_delay:
+    name: Area 8 – vypnúť po (min)
+    default: 10
+    selector:
+      number:
+        min: 1
+        max: 240
+        unit_of_measurement: min
+
+  area_9_motion:
+    name: Area 9 – pohyb
+    default: []
+    selector:
+      entity:
+        domain: binary_sensor
+        multiple: true
+  area_9_lights:
+    name: Area 9 – svetlá
+    default: []
+    selector:
+      entity:
+        domain: light
+        multiple: true
+  area_9_switches:
+    name: Area 9 – switche
+    default: []
+    selector:
+      entity:
+        domain: switch
+        multiple: true
+  area_9_delay:
+    name: Area 9 – vypnúť po (min)
+    default: 10
+    selector:
+      number:
+        min: 1
+        max: 240
+        unit_of_measurement: min
+
+  area_10_motion:
+    name: Area 10 – pohyb
+    default: []
+    selector:
+      entity:
+        domain: binary_sensor
+        multiple: true
+  area_10_lights:
+    name: Area 10 – svetlá
+    default: []
+    selector:
+      entity:
+        domain: light
+        multiple: true
+  area_10_switches:
+    name: Area 10 – switche
+    default: []
+    selector:
+      entity:
+        domain: switch
+        multiple: true
+  area_10_delay:
+    name: Area 10 – vypnúť po (min)
+    default: 10
+    selector:
+      number:
+        min: 1
+        max: 240
+        unit_of_measurement: min
 
 trigger:
   - platform: state
@@ -138,47 +340,38 @@ action:
           lights: !input area_1_lights
           switches: !input area_1_switches
           delay: !input area_1_delay
-
         - motion: !input area_2_motion
           lights: !input area_2_lights
           switches: !input area_2_switches
           delay: !input area_2_delay
-
         - motion: !input area_3_motion
           lights: !input area_3_lights
           switches: !input area_3_switches
           delay: !input area_3_delay
-
         - motion: !input area_4_motion
           lights: !input area_4_lights
           switches: !input area_4_switches
           delay: !input area_4_delay
-
         - motion: !input area_5_motion
           lights: !input area_5_lights
           switches: !input area_5_switches
           delay: !input area_5_delay
-
         - motion: !input area_6_motion
           lights: !input area_6_lights
           switches: !input area_6_switches
           delay: !input area_6_delay
-
         - motion: !input area_7_motion
           lights: !input area_7_lights
           switches: !input area_7_switches
           delay: !input area_7_delay
-
         - motion: !input area_8_motion
           lights: !input area_8_lights
           switches: !input area_8_switches
           delay: !input area_8_delay
-
         - motion: !input area_9_motion
           lights: !input area_9_lights
           switches: !input area_9_switches
           delay: !input area_9_delay
-
         - motion: !input area_10_motion
           lights: !input area_10_lights
           switches: !input area_10_switches
