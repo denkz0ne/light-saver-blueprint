@@ -1,39 +1,39 @@
 blueprint:
-  name: Pohybové svetlá – 10 izieb (AND logika)
+  name: Motion lights – 10 areas (AND)
   description: >
-    Každá izba funguje samostatne.
-    Vypnutie nastane až keď sú VŠETKY pohybové senzory OFF
-    po definovaný čas. Nevyplnené izby sa ignorujú.
+    Each area works independently.
+    Lights and switches turn off only if ALL motion sensors
+    are OFF for the defined time.
+    Empty areas are ignored.
   domain: automation
 
 mode: parallel
 
 input:
 
-  ### AREA 1
   area_1_motion:
-    name: Area 1 – pohyb
+    name: Area 1 – motion sensors
     default: []
     selector:
       entity:
         domain: binary_sensor
         multiple: true
   area_1_lights:
-    name: Area 1 – svetlá
+    name: Area 1 – lights
     default: []
     selector:
       entity:
         domain: light
         multiple: true
   area_1_switches:
-    name: Area 1 – switche
+    name: Area 1 – switches
     default: []
     selector:
       entity:
         domain: switch
         multiple: true
   area_1_delay:
-    name: Area 1 – vypnúť po (min)
+    name: Area 1 – off delay (min)
     default: 15
     selector:
       number:
@@ -41,30 +41,29 @@ input:
         max: 240
         unit_of_measurement: min
 
-  ### AREA 2
   area_2_motion:
-    name: Area 2 – pohyb
+    name: Area 2 – motion sensors
     default: []
     selector:
       entity:
         domain: binary_sensor
         multiple: true
   area_2_lights:
-    name: Area 2 – svetlá
+    name: Area 2 – lights
     default: []
     selector:
       entity:
         domain: light
         multiple: true
   area_2_switches:
-    name: Area 2 – switche
+    name: Area 2 – switches
     default: []
     selector:
       entity:
         domain: switch
         multiple: true
   area_2_delay:
-    name: Area 2 – vypnúť po (min)
+    name: Area 2 – off delay (min)
     default: 10
     selector:
       number:
@@ -72,30 +71,29 @@ input:
         max: 240
         unit_of_measurement: min
 
-  ### AREA 3
   area_3_motion:
-    name: Area 3 – pohyb
+    name: Area 3 – motion sensors
     default: []
     selector:
       entity:
         domain: binary_sensor
         multiple: true
   area_3_lights:
-    name: Area 3 – svetlá
+    name: Area 3 – lights
     default: []
     selector:
       entity:
         domain: light
         multiple: true
   area_3_switches:
-    name: Area 3 – switche
+    name: Area 3 – switches
     default: []
     selector:
       entity:
         domain: switch
         multiple: true
   area_3_delay:
-    name: Area 3 – vypnúť po (min)
+    name: Area 3 – off delay (min)
     default: 10
     selector:
       number:
@@ -103,30 +101,29 @@ input:
         max: 240
         unit_of_measurement: min
 
-  ### AREA 4
   area_4_motion:
-    name: Area 4 – pohyb
+    name: Area 4 – motion sensors
     default: []
     selector:
       entity:
         domain: binary_sensor
         multiple: true
   area_4_lights:
-    name: Area 4 – svetlá
+    name: Area 4 – lights
     default: []
     selector:
       entity:
         domain: light
         multiple: true
   area_4_switches:
-    name: Area 4 – switche
+    name: Area 4 – switches
     default: []
     selector:
       entity:
         domain: switch
         multiple: true
   area_4_delay:
-    name: Area 4 – vypnúť po (min)
+    name: Area 4 – off delay (min)
     default: 10
     selector:
       number:
@@ -134,30 +131,29 @@ input:
         max: 240
         unit_of_measurement: min
 
-  ### AREA 5
   area_5_motion:
-    name: Area 5 – pohyb
+    name: Area 5 – motion sensors
     default: []
     selector:
       entity:
         domain: binary_sensor
         multiple: true
   area_5_lights:
-    name: Area 5 – svetlá
+    name: Area 5 – lights
     default: []
     selector:
       entity:
         domain: light
         multiple: true
   area_5_switches:
-    name: Area 5 – switche
+    name: Area 5 – switches
     default: []
     selector:
       entity:
         domain: switch
         multiple: true
   area_5_delay:
-    name: Area 5 – vypnúť po (min)
+    name: Area 5 – off delay (min)
     default: 10
     selector:
       number:
@@ -165,30 +161,29 @@ input:
         max: 240
         unit_of_measurement: min
 
-  ### AREA 6–10
   area_6_motion:
-    name: Area 6 – pohyb
+    name: Area 6 – motion sensors
     default: []
     selector:
       entity:
         domain: binary_sensor
         multiple: true
   area_6_lights:
-    name: Area 6 – svetlá
+    name: Area 6 – lights
     default: []
     selector:
       entity:
         domain: light
         multiple: true
   area_6_switches:
-    name: Area 6 – switche
+    name: Area 6 – switches
     default: []
     selector:
       entity:
         domain: switch
         multiple: true
   area_6_delay:
-    name: Area 6 – vypnúť po (min)
+    name: Area 6 – off delay (min)
     default: 10
     selector:
       number:
@@ -197,28 +192,28 @@ input:
         unit_of_measurement: min
 
   area_7_motion:
-    name: Area 7 – pohyb
+    name: Area 7 – motion sensors
     default: []
     selector:
       entity:
         domain: binary_sensor
         multiple: true
   area_7_lights:
-    name: Area 7 – svetlá
+    name: Area 7 – lights
     default: []
     selector:
       entity:
         domain: light
         multiple: true
   area_7_switches:
-    name: Area 7 – switche
+    name: Area 7 – switches
     default: []
     selector:
       entity:
         domain: switch
         multiple: true
   area_7_delay:
-    name: Area 7 – vypnúť po (min)
+    name: Area 7 – off delay (min)
     default: 10
     selector:
       number:
@@ -227,28 +222,28 @@ input:
         unit_of_measurement: min
 
   area_8_motion:
-    name: Area 8 – pohyb
+    name: Area 8 – motion sensors
     default: []
     selector:
       entity:
         domain: binary_sensor
         multiple: true
   area_8_lights:
-    name: Area 8 – svetlá
+    name: Area 8 – lights
     default: []
     selector:
       entity:
         domain: light
         multiple: true
   area_8_switches:
-    name: Area 8 – switche
+    name: Area 8 – switches
     default: []
     selector:
       entity:
         domain: switch
         multiple: true
   area_8_delay:
-    name: Area 8 – vypnúť po (min)
+    name: Area 8 – off delay (min)
     default: 10
     selector:
       number:
@@ -257,28 +252,28 @@ input:
         unit_of_measurement: min
 
   area_9_motion:
-    name: Area 9 – pohyb
+    name: Area 9 – motion sensors
     default: []
     selector:
       entity:
         domain: binary_sensor
         multiple: true
   area_9_lights:
-    name: Area 9 – svetlá
+    name: Area 9 – lights
     default: []
     selector:
       entity:
         domain: light
         multiple: true
   area_9_switches:
-    name: Area 9 – switche
+    name: Area 9 – switches
     default: []
     selector:
       entity:
         domain: switch
         multiple: true
   area_9_delay:
-    name: Area 9 – vypnúť po (min)
+    name: Area 9 – off delay (min)
     default: 10
     selector:
       number:
@@ -287,28 +282,28 @@ input:
         unit_of_measurement: min
 
   area_10_motion:
-    name: Area 10 – pohyb
+    name: Area 10 – motion sensors
     default: []
     selector:
       entity:
         domain: binary_sensor
         multiple: true
   area_10_lights:
-    name: Area 10 – svetlá
+    name: Area 10 – lights
     default: []
     selector:
       entity:
         domain: light
         multiple: true
   area_10_switches:
-    name: Area 10 – switche
+    name: Area 10 – switches
     default: []
     selector:
       entity:
         domain: switch
         multiple: true
   area_10_delay:
-    name: Area 10 – vypnúť po (min)
+    name: Area 10 – off delay (min)
     default: 10
     selector:
       number:
@@ -320,16 +315,16 @@ trigger:
   - platform: state
     entity_id: >
       {{
-        input_area_1_motion
-        + input_area_2_motion
-        + input_area_3_motion
-        + input_area_4_motion
-        + input_area_5_motion
-        + input_area_6_motion
-        + input_area_7_motion
-        + input_area_8_motion
-        + input_area_9_motion
-        + input_area_10_motion
+        input_area_1_motion +
+        input_area_2_motion +
+        input_area_3_motion +
+        input_area_4_motion +
+        input_area_5_motion +
+        input_area_6_motion +
+        input_area_7_motion +
+        input_area_8_motion +
+        input_area_9_motion +
+        input_area_10_motion
       }}
     to: "on"
 
@@ -376,7 +371,6 @@ action:
           lights: !input area_10_lights
           switches: !input area_10_switches
           delay: !input area_10_delay
-
       sequence:
         - condition: template
           value_template: "{{ repeat.item.motion | length > 0 }}"
