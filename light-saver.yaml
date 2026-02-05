@@ -1,0 +1,201 @@
+blueprint:
+  name: Pohybové svetlá – 10 izieb (AND logika)
+  description: >
+    Každá izba funguje samostatne.
+    Vypnutie nastane až keď sú VŠETKY pohybové senzory OFF
+    po definovaný čas. Nevyplnené izby sa ignorujú.
+  domain: automation
+
+mode: parallel
+
+input:
+
+  ### AREA 1
+  area_1_motion:
+    name: Area 1 – pohyb
+    default: []
+    selector:
+      entity:
+        domain: binary_sensor
+        multiple: true
+
+  area_1_lights:
+    name: Area 1 – svetlá
+    default: []
+    selector:
+      entity:
+        domain: light
+        multiple: true
+
+  area_1_switches:
+    name: Area 1 – switche
+    default: []
+    selector:
+      entity:
+        domain: switch
+        multiple: true
+
+  area_1_delay:
+    name: Area 1 – vypnúť po (min)
+    default: 15
+    selector:
+      number:
+        min: 1
+        max: 240
+        unit_of_measurement: min
+
+  ### AREA 2
+  area_2_motion:
+    name: Area 2 – pohyb
+    default: []
+    selector:
+      entity:
+        domain: binary_sensor
+        multiple: true
+
+  area_2_lights:
+    name: Area 2 – svetlá
+    default: []
+    selector:
+      entity:
+        domain: light
+        multiple: true
+
+  area_2_switches:
+    name: Area 2 – switche
+    default: []
+    selector:
+      entity:
+        domain: switch
+        multiple: true
+
+  area_2_delay:
+    name: Area 2 – vypnúť po (min)
+    default: 10
+    selector:
+      number:
+        min: 1
+        max: 240
+        unit_of_measurement: min
+
+  ### AREA 3–10 (rovnaký vzor)
+  {% for i in range(3,11) %}
+  area_{{ i }}_motion:
+    name: Area {{ i }} – pohyb
+    default: []
+    selector:
+      entity:
+        domain: binary_sensor
+        multiple: true
+
+  area_{{ i }}_lights:
+    name: Area {{ i }} – svetlá
+    default: []
+    selector:
+      entity:
+        domain: light
+        multiple: true
+
+  area_{{ i }}_switches:
+    name: Area {{ i }} – switche
+    default: []
+    selector:
+      entity:
+        domain: switch
+        multiple: true
+
+  area_{{ i }}_delay:
+    name: Area {{ i }} – vypnúť po (min)
+    default: 10
+    selector:
+      number:
+        min: 1
+        max: 240
+        unit_of_measurement: min
+  {% endfor %}
+
+trigger:
+  - platform: state
+    entity_id: >
+      {{
+        input_area_1_motion
+        + input_area_2_motion
+        + input_area_3_motion
+        + input_area_4_motion
+        + input_area_5_motion
+        + input_area_6_motion
+        + input_area_7_motion
+        + input_area_8_motion
+        + input_area_9_motion
+        + input_area_10_motion
+      }}
+    to: "on"
+
+action:
+  - repeat:
+      for_each:
+        - motion: !input area_1_motion
+          lights: !input area_1_lights
+          switches: !input area_1_switches
+          delay: !input area_1_delay
+
+        - motion: !input area_2_motion
+          lights: !input area_2_lights
+          switches: !input area_2_switches
+          delay: !input area_2_delay
+
+        - motion: !input area_3_motion
+          lights: !input area_3_lights
+          switches: !input area_3_switches
+          delay: !input area_3_delay
+
+        - motion: !input area_4_motion
+          lights: !input area_4_lights
+          switches: !input area_4_switches
+          delay: !input area_4_delay
+
+        - motion: !input area_5_motion
+          lights: !input area_5_lights
+          switches: !input area_5_switches
+          delay: !input area_5_delay
+
+        - motion: !input area_6_motion
+          lights: !input area_6_lights
+          switches: !input area_6_switches
+          delay: !input area_6_delay
+
+        - motion: !input area_7_motion
+          lights: !input area_7_lights
+          switches: !input area_7_switches
+          delay: !input area_7_delay
+
+        - motion: !input area_8_motion
+          lights: !input area_8_lights
+          switches: !input area_8_switches
+          delay: !input area_8_delay
+
+        - motion: !input area_9_motion
+          lights: !input area_9_lights
+          switches: !input area_9_switches
+          delay: !input area_9_delay
+
+        - motion: !input area_10_motion
+          lights: !input area_10_lights
+          switches: !input area_10_switches
+          delay: !input area_10_delay
+
+      sequence:
+        - condition: template
+          value_template: "{{ repeat.item.motion | length > 0 }}"
+
+        - wait_for_trigger:
+            - platform: state
+              entity_id: "{{ repeat.item.motion }}"
+              to: "off"
+          for:
+            minutes: "{{ repeat.item.delay }}"
+
+        - service: homeassistant.turn_off
+          target:
+            entity_id: >
+              {{ repeat.item.lights + repeat.item.switches }}
